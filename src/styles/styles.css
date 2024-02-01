@@ -1,0 +1,12 @@
+
+  
+ .mainContainer {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .headerSection {
+    align-items: center;
+    /* Additional styles for headerSection if needed */
+  }
+  
