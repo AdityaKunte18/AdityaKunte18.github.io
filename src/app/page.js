@@ -5,6 +5,7 @@ import { FaSquareGithub } from "react-icons/fa6";
 import { VscMail } from "react-icons/vsc";
 import { CiMail } from "react-icons/ci";
 import Image from 'next/image';
+import { IoDocumentAttachOutline } from "react-icons/io5";
 
 export default function Home() {
   return (
@@ -21,9 +22,31 @@ export default function Home() {
             <h2 style={{fontSize:50}}>Hi, I'm Aditya!</h2>
           </div>
           <div className="iconContainer">
-            <CiLinkedin size={55}/>
-            <FaSquareGithub size={45} />
-            <CiMail size={47}/>
+            <div className="linkedinContainer">
+              <a href="https://www.linkedin.com/in/aditya-kunte/" target="_blank" rel="noopener noreferrer">
+                <CiLinkedin size={55}/>
+              </a>
+              <span className="tooltipText">LinkedIn</span>
+            </div>
+            <div  className="githubContainer">
+              <a href="https://github.com/AdityaKunte18" target="_blank" rel="noopener noreferrer">
+                <FaSquareGithub size={45} />
+              </a>
+              <span className="tooltipText">Github</span>
+            </div>
+            <div className="mailContainer">
+              <a href="mailto:akunte2@illinois.edu">
+                <CiMail size={47}/>
+              </a>
+              <span className="tooltipText">Email</span>
+            </div>
+
+            <div className="resumeContainer">
+              <a href="../../public/AdityaK_Resume.pdf" download>
+                <IoDocumentAttachOutline size={40}/>
+              </a>
+              <span className="tooltipText">Resume</span>
+            </div>
           </div>
         </div>
         <div>
