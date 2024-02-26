@@ -4,30 +4,36 @@ import { SlSocialLinkedin } from "react-icons/sl";
 import { FaSquareGithub } from "react-icons/fa6";
 import { VscMail } from "react-icons/vsc";
 import { CiMail } from "react-icons/ci";
+import Image from 'next/image';
 
 export default function Home() {
   return (
     <div className="mainContainer">
       <div className="headerSection">
         <div className="imageContainer">
-          <h1>My PFP Here!</h1>
+          <div className="pfpContainer">
+            <Image src = '/pfp_updated.jpg' alt='my pfp here'  width={150} height={150} className="pfp"/>
+            
+          </div>
         </div>
         <div className="titleContainer">
           <div className="nameContainer">
-            <h2 style={{fontSize:80}}>Chut</h2>
+            <h2 style={{fontSize:50}}>Hi, I'm Aditya!</h2>
           </div>
           <div className="iconContainer">
-            <CiLinkedin size={60}/>
-            <FaSquareGithub size={52} />
-            <CiMail size={50}/>
+            <CiLinkedin size={55}/>
+            <FaSquareGithub size={45} />
+            <CiMail size={47}/>
           </div>
         </div>
         <div>
-          <h1>light mode/ dark mode container here</h1>
         </div>
-       <div>
+       <div style={{width:'33%'}}>
 
        </div>
+      </div>
+      <div className="footerContainer">
+      <h1 style={{fontFamily:'monospace'}}>Made with <span style={{fontSize:'18pt'}}>☕️</span> and <span style={{fontSize:'18pt'}}>❤️</span> By Aditya </h1>
       </div>
     </div>
   );
