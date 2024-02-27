@@ -1,5 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../styles/styles.css';
+import AboutMe from './AboutMe';
+import Projects from './Projects';
+import WorkExperience from './WorkExperience';
+
 
 function ContentContainer() {
   // Adding "Work Experience" to the tabs list
@@ -7,13 +11,30 @@ function ContentContainer() {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
   const underlineRef = useRef(null);
   const tabRefs = useRef(tabs.map(() => React.createRef()));
+//   const [renderKey, setRenderKey] = useState(0); // Added for re-triggering animations
 
   useEffect(() => {
     const currentTab = tabRefs.current[tabs.indexOf(selectedTab)].current;
     const underline = underlineRef.current;
     underline.style.width = `${currentTab.offsetWidth}px`;
     underline.style.left = `${currentTab.offsetLeft}px`;
+    // setRenderKey(prevKey => prevKey + 1); // Increment renderKey to re-trigger animation
   }, [selectedTab]);
+
+
+  const renderComponent = () => {
+    switch(selectedTab) {
+      case 'About Me':
+        return <AboutMe />;
+      case 'My Projects':
+        return <Projects />;
+      case 'Work Experience':
+        return <WorkExperience />;
+      default:
+        return <div>Tab not found</div>;
+    }
+  };
+
 
   return (
     <div className="contentContainer">
@@ -30,8 +51,8 @@ function ContentContainer() {
         <div style={{width:'33%'}}></div>
       </div>
 
-      <div className="bodyContainer">
-        <h1>{selectedTab} content here!</h1>
+      <div className="bodyContainer fadeInUp" key={selectedTab}>
+        {renderComponent()}
       </div>
 
       <div style={{width:'33%'}}>
