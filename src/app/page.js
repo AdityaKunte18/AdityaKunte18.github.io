@@ -1,3 +1,4 @@
+"use client"
 import '../styles/styles.css';
 import { CiLinkedin } from "react-icons/ci";
 import { SlSocialLinkedin } from "react-icons/sl";
@@ -6,6 +7,7 @@ import { VscMail } from "react-icons/vsc";
 import { CiMail } from "react-icons/ci";
 import Image from 'next/image';
 import { IoDocumentAttachOutline } from "react-icons/io5";
+import ContentContainer from '@/components/ContentContainer';
 
 export default function Home() {
   return (
@@ -55,8 +57,9 @@ export default function Home() {
 
        </div>
       </div>
+      <ContentContainer/>
       <div className="footerContainer">
-      <h1 style={{fontFamily:'monospace'}}>Made with <span style={{fontSize:'18pt'}}>☕️</span> and <span style={{fontSize:'18pt'}}>❤️</span> By Aditya </h1>
+        <h1 style={{fontFamily:'monospace'}}>Made with <span style={{fontSize:'18pt'}}>☕️</span> and <span style={{fontSize:'18pt'}}>❤️</span> By Aditya </h1>
       </div>
     </div>
   );
