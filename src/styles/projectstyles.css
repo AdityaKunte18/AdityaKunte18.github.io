@@ -52,11 +52,12 @@
     flex-direction:column; 
     justify-content:space-around; 
     margin-top:-30pt;
+    font-size: 20pt;
   }
 
   .prtitle p {
     font-family:monospace;
-    font-size:20pt;
+    font-size:10pt;
     color: slategrey;
   }
 
