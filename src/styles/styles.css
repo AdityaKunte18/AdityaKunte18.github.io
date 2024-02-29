@@ -1,17 +1,25 @@
+
 .mainContainer {
   display: flex;
   flex-direction: column;
-  /* border-color: rgb(224, 54, 54); */
-  /* border-width: 2px; */
-  width: 100%;
-  height: 100%;
+  justify-content: space-between; /* Adjusted to space between to push footer down */
+  min-height: 100vh; /* Make sure the main container fills at least the whole viewport height */
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
+
+.contentContainer {
+  /* flex: 1; Allows this container to grow and take up available space */
+  flex-grow: 1; /* Allows this container to expand */
+  display: flex;
+  flex-direction: column;
 }
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 
 body {
   color: rgb(var(--foreground-rgb)); /* Keeps your text color as before */
@@ -152,16 +160,6 @@ body {
   }
 }
 
-.contentContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  /* border: solid 1px white; */
-  width: 100%;
-  height: 100%;
-}
-
 .optionsContainer {
   display: flex;
   flex-direction: row;
@@ -223,10 +221,15 @@ body {
 
 .bodyContainer {
   display: flex;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 100%;
   height: 100%;
+  min-height: 100%;
+  padding-bottom: 5%;
 }
+
+
+
 
 .AboutMeContainer {
   display: flex;
@@ -236,6 +239,7 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 
 .aboutMeText {
   /* border: 1px solid pink; */
@@ -252,19 +256,135 @@ body {
   font: weight 200px;;
 }
 
+
 .footerContainer {
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 5%;
-  /* border-color: red;
-  border-width: 1px; */
-  /* position: fixed; */
+  text-align: center;
+  align-items: center;
+  padding: 20px 0;
+  background-color: #23303f;
+  color: #ffffff;
+  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  align-items: center;
+  /* border: 1px solid red; */
   justify-content: center;
 }
 
+.pfp {
+  width:150px;
+  height:150px;
+}
 
+.title {
+  font-size: 50pt;
+}
+
+.linkdin {
+  font-size: 55px;
+}
+
+.github {
+  font-size:45px;
+}
+
+.mail {
+  font-size: 47px;
+}
+
+.resume {
+  font-size:40px;
+}
+
+@media screen and (max-width:789px) {
+
+  .pfp {
+    width: 50px;
+    height: 50px;
+  }
+
+  .title {
+    font-size: 10pt;
+  }
+
+  .linkdin {
+    font-size: 20px;
+  }
+
+  .github {
+    font-size:20px;
+  }
+  
+  .mail {
+    font-size: 20px;
+  }
+  
+  .resume {
+    font-size:20px;
+  }
+
+  .headerSection {
+    margin-top: 0.8%;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 25%;
+    justify-content: center;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
+    /* border-color: white;
+    border-width: 2px; */
+  }
+
+  .tabsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150%; /* Adjust as necessary */
+    /* border: 1px solid red; */
+    height: 45px;
+  }
+  
+  /* Styles for each tab */
+  .tabsContainer h1 {
+    cursor: pointer;
+    position: relative;
+   
+    position: relative; /* For potential additional styling */
+    transition: color 2s ease; /* Smooth transition for text color or other properties */
+    font-size: 10px;
+  }
+  
+  /* Styles for the dynamic underline */
+  .underline {
+    position: absolute; 
+    height: 1px;
+    width: 0.1%; 
+    margin-top: 6.5%;
+    /* margin-bottom: 1%; */
+    background-color: rgb(255, 255, 255);
+    transition: left 0.8s ease, width 0.8s ease; 
+  }
+  
+  /* Optionally, add hover effects for tabs */
+  .tabsContainer h1:hover {
+    color: #f3f3f3; /* Example hover color, adjust as needed */
+  }
+  
+  .aboutMeText {
+    /* border: 1px solid pink; */
+    width: 60%;
+    height: 80%;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: small;
+    margin-left: 10pt;
+    padding: 2%;
+  }
+   
+
+
+  
+}

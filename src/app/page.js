@@ -16,36 +16,35 @@ export default function Home() {
         <div className="imageContainer">
           <div className="pfpContainer">
             <Image src = '/pfp_updated.jpg' alt='my pfp here'  width={150} height={150} className="pfp"/>
-            
           </div>
         </div>
         <div className="titleContainer">
           <div className="nameContainer">
-            <h2 style={{fontSize:50}}>Hi, I'm Aditya!</h2>
+            <h2 className="title">Hi, I'm Aditya!</h2>
           </div>
           <div className="iconContainer">
             <div className="linkedinContainer">
               <a href="https://www.linkedin.com/in/aditya-kunte/" target="_blank" rel="noopener noreferrer">
-                <CiLinkedin size={55}/>
+                <CiLinkedin className="linkdin"/>
               </a>
               <span className="tooltipText">LinkedIn</span>
             </div>
             <div  className="githubContainer">
               <a href="https://github.com/AdityaKunte18" target="_blank" rel="noopener noreferrer">
-                <FaSquareGithub size={45} />
+                <FaSquareGithub className='github'/>
               </a>
               <span className="tooltipText">Github</span>
             </div>
             <div className="mailContainer">
               <a href="mailto:akunte2@illinois.edu">
-                <CiMail size={47}/>
+                <CiMail className='mail'/>
               </a>
               <span className="tooltipText">Email</span>
             </div>
 
             <div className="resumeContainer">
               <a href="../../public/AdityaK_Resume.pdf" download>
-                <IoDocumentAttachOutline size={40}/>
+                <IoDocumentAttachOutline className='resume'/>
               </a>
               <span className="tooltipText">Resume</span>
             </div>
@@ -58,9 +57,6 @@ export default function Home() {
        </div>
       </div>
       <ContentContainer/>
-      <div className="footerContainer">
-        <h1 style={{fontFamily:'monospace'}}>Made with <span style={{fontSize:'18pt'}}>☕️</span> and <span style={{fontSize:'18pt'}}>❤️</span> By Aditya </h1>
-      </div>
     </div>
   );
 }

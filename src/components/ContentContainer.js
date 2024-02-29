@@ -55,7 +55,8 @@ function ContentContainer() {
         {renderComponent()}
       </div>
 
-      <div style={{width:'33%'}}>
+      <div className="footerContainer">
+        <h1 style={{fontFamily:'monospace'}}>Made with <span style={{fontSize:'18pt'}}>☕️</span> and <span style={{fontSize:'18pt'}}>❤️</span> By Aditya </h1>
       </div>
     </div>
   );
