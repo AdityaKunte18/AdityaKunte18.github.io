@@ -20,7 +20,7 @@ export default function Home() {
         </div>
         <div className="titleContainer">
           <div className="nameContainer">
-            <h2 className="title">Hi, I'm Aditya!</h2>
+            <h2 className="title">Hi, I am Aditya!</h2>
           </div>
           <div className="iconContainer">
             <div className="linkedinContainer">
