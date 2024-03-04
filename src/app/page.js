@@ -43,7 +43,7 @@ export default function Home() {
             </div>
 
             <div className="resumeContainer">
-              <a href="../../public/AdityaK_Resume.pdf" download>
+              <a href="/AdityaK_Resume.pdf" download>
                 <IoDocumentAttachOutline className='resume'/>
               </a>
               <span className="tooltipText">Resume</span>
