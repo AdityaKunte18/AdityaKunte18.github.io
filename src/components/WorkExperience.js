@@ -7,6 +7,22 @@ function WorkExperience() {
   // Adding "Work Experience" to the tabs list
   const experiences = [
     {
+      title: 'Research',
+      company: 'CreateLab' ,
+      duration: 'May - Present',
+      location: 'Champaign, Illinois',
+      year: '2024',
+      description: "Working with Professor Yongjoo Park to look for improvements in causal models by improving its parallelism. Also working on optimizing random forest models by improving their parallelism"
+    },
+    {
+      title: 'Software Engineer',
+      company: 'Applied Research Institute' ,
+      duration: 'May - Present',
+      location: 'Champaign, Illinois',
+      year: '2024',
+      description: "Implemented mealplot.com, a website used by researchers, using React.js. Also implemented Flask API-endpoints that served data to the React website.",
+    },
+    {
       title: 'Intern, Software Engineer',
       company: 'Disruption Lab' ,
       duration: '3 Months',

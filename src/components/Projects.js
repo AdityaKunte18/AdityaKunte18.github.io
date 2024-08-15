@@ -13,6 +13,12 @@ function Projects() {
       githubLink: 'https://github.com/shiv213/moodmusic',
     },
     {
+      title: 'CricLookup',
+      skills: ['Python', "web-scraping", "data-manipulation"],
+      description: "For the 2024 Cricket IPL, I fetched player data (runs and wickets) from cricinfo. This involved a lot of string parsing to determine the type of wicket (caught-out, LBW) and the number of runs. I used fuzzy matching to match player scores to player names in a dictionary.",
+      githubLink: 'https://github.com/AdityaKunte18/cricLookup'
+    },
+    {
       title: 'Ascent Rock Climbing Tool',
       skills: ["Embedded Systems", "C++"],
       description: "This was my team's project for the Buildspace Hackathon. We used muscle sensors to measure forearm grip strength, and returned metrics like fatigue-periods, max grip strength, etc.." ,

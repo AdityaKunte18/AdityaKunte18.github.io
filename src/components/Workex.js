@@ -6,8 +6,8 @@ function Workex({ title, company , duration, location, year, description }) {
     <div className="workexContainer">
       <div className="workextitlecomp">
         <div>
-            <h1>{company}</h1>
-            <h2>{title}</h2>
+            <h2 style={{color:'white'}}>{company}</h2>
+            <h3 style={{color:'slategrey'}}>{title}</h3>
         </div>
         <div style={{display:'flex', flexDirection:'column'}}>
             <h2 style={{textAlign:'right'}}>{year}</h2>
