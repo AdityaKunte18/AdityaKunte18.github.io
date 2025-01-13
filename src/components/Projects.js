@@ -7,6 +7,12 @@ function Projects() {
   // Example projects data
   const projects = [
     {
+      title: 'Healthify',
+      skills: ['React.JS', 'SQL'],
+      description: "A straightforward workflow productivity app for medical residents in India. Residents are usually overworked daily, and have no electronic health record system (at least for those in public hospitals). This app makes their work easier.",
+      githubLink: 'https://github.com/AdityaKunte18/Healthify',
+    },
+    {
       title: 'Mood Music',
       skills: ['Python', 'SpotifyAPI', 'ML'],
       description: "Using the Wav2Vec2 model to determine a speaker's mood, and then generating a spotify playlist based on that mood.",
@@ -27,7 +33,7 @@ function Projects() {
     {
       title: 'Pull Up',
       skills: ["Full-Stack", "SQL", "Flask", "Cloud"],
-      description: "Pull Up is an app designed to centralize event discovery at UIUC, allowing organizations to list events and users to receive personalized recommendations. It leverages a SQL server on the Google Cloud Platform to ensure up-to-date event information.",
+      description: "Pull Up is an app designed to centralize event discovery at UIUC, allowing organizations to list events and users to receive personalized recommendations. It uses a SQL server on the Google Cloud Platform to ensure up-to-date event information.",
       githubLink: 'https://github.com/cs411-alawini/PullUp',
     },
     {
@@ -45,7 +51,7 @@ function Projects() {
     {
       title: 'JLPT N5 Vocab database',
       skills: ['Selenium', 'Python'],
-      description: 'Created a database of \'N5\' level words, including verbs, adjectives, nouns, and kanji' ,
+      description: 'Created a database of \'N5\' level words, including verbs, adjectives, nouns, and kanji, scraped using Selenium and then processed with pandas.' ,
       githubLink: 'https://github.com/AdityaKunte18/jlptn5Verbs',
     }
     // Add more projects here
