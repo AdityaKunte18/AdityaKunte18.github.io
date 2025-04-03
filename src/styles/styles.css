@@ -1,79 +1,92 @@
-
 .mainContainer {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Adjusted to space between to push footer down */
-  min-height: 100vh; /* Make sure the main container fills at least the whole viewport height */
+  justify-content: space-between;
+  min-height: 100vh;
 }
 
-
 .contentContainer {
-  /* flex: 1; Allows this container to grow and take up available space */
-  flex-grow: 1; /* Allows this container to expand */
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
-
 
 html, body {
   height: 100%;
   margin: 0;
 }
 
-
 body {
-  color: rgb(var(--foreground-rgb)); /* Keeps your text color as before */
-  background-color: #23303f; /* Sets the solid background color */
+  color: rgb(var(--foreground-rgb));
+  background-color: #23303f;
 }
 
 .headerSection {
-  margin-top: 0.8%;
-  margin-left: 0.5%;
-  margin-right: 0.5%;
   display: flex;
-  flex-direction: row;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 0 0.5%;
+  /* border: 2px solid white; */
   width: 100%;
-  height: 25%;
-  justify-content: space-between;
-  padding-left: 0.5%;
-  padding-right: 0.5%;
-  /* border-color: white;
-  border-width: 2px; */
+}
+
+.headerLeft,
+.headerCenter,
+.headerRight {
+  flex: 1; 
+  display: flex;
+  align-items: center;
+  /* border: 2px solid grey; */
+  width: 100%;
+  height: 100%;
+}
+.headerLeft {
+  justify-content: center;
+}
+
+.headerCenter {
+  justify-content: center; 
+}
+
+.imageContainer {
+  display: flex;
+  align-items: center;
+  /* border: 2px solid green; */
+  margin-left: 20px;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .titleContainer {
   display: flex;
   flex-direction: column;
-  width: 33%;
-  /* border-width: 2px;
-  border-color: white; */
   justify-content: center;
   align-items: center;
+  /* border: 2px solid red; */
 }
 
-.imageContainer {
+
+
+
+.linkedinContainer,
+.githubContainer,
+.mailContainer,
+.resumeContainer {
   display: flex;
-  /* border-width: 2px;
-  border-color: aquamarine; */
-  width: 33% ;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 2%;
-  
-}
-
-.linkedinContainer, .githubContainer, .mailContainer, .resumeContainer {
-  display: flex;
-  width: 33%;
   align-items: center;
   justify-content: center;
-  transition: transform 0.5s ease; 
+  position: relative;
+  margin: 0 8px;
+  transition: transform 0.5s ease;
 }
 
-.linkedinContainer:hover, .githubContainer:hover, .mailContainer:hover, .resumeContainer:hover {
-  transform: translateY(-10px); 
+.linkedinContainer:hover,
+.githubContainer:hover,
+.mailContainer:hover,
+.resumeContainer:hover {
+  transform: translateY(-10px);
 }
-/* Tooltip text container */
+/* 
 .tooltipText {
   visibility: hidden;
   width: 120px;
@@ -86,12 +99,11 @@ body {
   bottom: 100%;
   left: 50%;
   margin-bottom: 2%;
-  margin-left: -60px; /* Center the tooltip */
+  margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
-}
+} */
 
-/* Show the tooltip text when hovering over the icon container */
 .linkedinContainer:hover .tooltipText, 
 .githubContainer:hover .tooltipText, 
 .mailContainer:hover .tooltipText,
@@ -100,56 +112,44 @@ body {
   opacity: 1;
 }
 
-
 .pfpContainer {
   border-radius: 50%;
-  border-color: white;
-  border-width: 3px;
+  border: 3px solid white;
   overflow: hidden;
-  width: 150; 
-  height: 150; 
-  display: flex; 
-  transition-property: transform;
-  transition-duration: 0.8s;
+  display: flex;
+  transition: transform 0.8s;
 }
 
 .pfpContainer:hover {
   transform: scale(1.06);
 }
 
-
-
-
 .iconContainer {
   display: flex;
   flex-direction: row;
-  /* border-width: 2px;
-  border-color: aqua; */
-  width: 50%;
-  height: 50%;
+  width: 100%;
   justify-content: center;
   align-items: center;
   margin-top: 5%;
+  flex-wrap: wrap;
 }
 
-
 .nameContainer {
-  font-size: 20;
+  font-size: 20px;
   margin-top: -4%;
-  /* border-color: aqua;
-  border-width: 1px; */
   position: relative;
+  text-align: center;
 }
 
 .nameContainer::after {
   content: '';
   position: absolute;
-  bottom: 0; /* Aligns the underline at the bottom of the text */
+  bottom: 0;
   left: 0;
-  width: 0%; /* Start width at 0% */
-  height: 2px; /* Height of the underline */
-  background-color: currentColor; /* Matches the color of the text */
-  animation: growUnderline 2s forwards; /* Animation name, duration, and fill-mode */
+  width: 0%;
+  height: 2px;
+  background-color: currentColor;
+  animation: growUnderline 2s forwards;
 }
 
 @keyframes growUnderline {
@@ -164,45 +164,40 @@ body {
 .optionsContainer {
   display: flex;
   flex-direction: row;
-  /* border: 1px solid rgb(128, 171, 150); */
   width: 100%;
-  height: 10%;
   justify-content: center;
   align-items: center;
+  padding: 20px 0;
 }
 
-
-/* Styles for the tabs container */
 .tabsContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%; /* Adjust as necessary */
+  width: 100%;
+  flex-wrap: wrap;
+  position: relative;
 }
 
-/* Styles for each tab */
 .tabsContainer h1 {
   cursor: pointer;
   position: relative;
-  padding: 10px; /* Adjust padding as needed */
-  margin: 0 20px; /* Adjust margin as needed */
-  position: relative; /* For potential additional styling */
-  transition: color 2s ease; /* Smooth transition for text color or other properties */
+  padding: 10px;
+  margin: 0 20px;
+  transition: color 0.3s ease;
+  font-size: 1.5rem;
 }
 
-/* Styles for the dynamic underline */
 .underline {
-  position: absolute; 
-  height: 2px; 
+  position: absolute;
+  height: 2px;
   margin-top: 2%;
-  /* margin-bottom: 1%; */
   background-color: rgb(255, 255, 255);
-  transition: left 0.8s ease, width 0.8s ease; 
+  transition: left 0.8s ease, width 0.8s ease;
 }
 
-/* Optionally, add hover effects for tabs */
 .tabsContainer h1:hover {
-  color: #f3f3f3; /* Example hover color, adjust as needed */
+  color: #f3f3f3;
 }
 
 @keyframes fadeInUp {
@@ -222,41 +217,33 @@ body {
 
 .bodyContainer {
   display: flex;
-  /* border: 1px solid red; */
   width: 100%;
-  height: 100%;
-  min-height: 100%;
-  padding-bottom: 5%;
+  flex-grow: 1;
+  padding-bottom: 100px; 
 }
-
-
-
 
 .AboutMeContainer {
   display: flex;
-  /* border: 1px solid white; */
   width: 100%;
   height: 100%;
   align-items: center;
   justify-content: center;
+  padding: 20px;
 }
 
-
 .aboutMeText {
-  /* border: 1px solid pink; */
-  width: 60%;
-  height: 80%;
-  font-family:Arial, Helvetica, sans-serif;
+  width: 80%;
+  max-width: 800px;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: large;
-  margin-left: 10pt;
-  padding: 2%;
+  padding: 20px;
+  line-height: 1.6;
 }
 
 .highlightedText {
   color: rgb(249, 156, 56);
-  font: weight 200px;;
+  font-weight: 600;
 }
-
 
 .footerContainer {
   display: flex;
@@ -269,123 +256,153 @@ body {
   left: 0;
   bottom: 0;
   width: 100%;
-  /* border: 1px solid red; */
   justify-content: center;
+  font-size: 1rem;
 }
 
 .pfp {
-  width:150px;
-  height:150px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
 }
 
 .title {
-  font-size: 50pt;
+  font-size: 2.5rem;
 }
 
 .linkdin {
-  font-size: 55px;
+  font-size: 2.5rem;
 }
 
 .github {
-  font-size:45px;
+  font-size: 2.2rem;
 }
 
 .mail {
-  font-size: 47px;
+  font-size: 2.3rem;
 }
 
 .resume {
-  font-size:40px;
+  font-size: 2rem;
 }
 
-@media screen and (max-width:789px) {
 
-  .pfp {
-    width: 50px;
-    height: 50px;
-  }
-
-  .title {
-    font-size: 10pt;
-  }
-
-  .linkdin {
-    font-size: 20px;
-  }
-
-  .github {
-    font-size:20px;
-  }
-  
-  .mail {
-    font-size: 20px;
-  }
-  
-  .resume {
-    font-size:20px;
-  }
-
-  .headerSection {
-    margin-top: 0.8%;
-    margin-left: 0.5%;
-    margin-right: 0.5%;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 25%;
-    justify-content: center;
-    padding-left: 0.5%;
-    padding-right: 0.5%;
-    /* border-color: white;
-    border-width: 2px; */
-  }
-
-  .tabsContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150%; /* Adjust as necessary */
-    /* border: 1px solid red; */
-    height: 45px;
-  }
-  
-  /* Styles for each tab */
-  .tabsContainer h1 {
-    cursor: pointer;
-    position: relative;
-   
-    position: relative; /* For potential additional styling */
-    transition: color 2s ease; /* Smooth transition for text color or other properties */
-    font-size: 10px;
-  }
-  
-  /* Styles for the dynamic underline */
-  .underline {
-    position: absolute; 
-    height: 1px;
-    width: 0.1%; 
-    margin-top: 6.5%;
-    /* margin-bottom: 1%; */
-    background-color: rgb(255, 255, 255);
-    transition: left 0.8s ease, width 0.8s ease; 
-  }
-  
-  /* Optionally, add hover effects for tabs */
-  .tabsContainer h1:hover {
-    color: #f3f3f3; /* Example hover color, adjust as needed */
+@media screen and (max-width: 1024px) {
+  .titleContainer, .imageContainer {
+    width: 40%;
   }
   
   .aboutMeText {
-    /* border: 1px solid pink; */
-    width: 60%;
-    height: 80%;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size: small;
-    margin-left: 10pt;
-    padding: 2%;
+    width: 90%;
   }
-   
-
-
   
+  .imageContainer {
+    left: 1rem; 
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .headerSection {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .titleContainer, .imageContainer {
+    width: 100%;
+    margin-bottom: 35px;
+  }
+  
+  
+  .imageContainer {
+    position: static;
+  }
+  
+  .pfp {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+    margin-top: 10px;
+  }
+  
+  .iconContainer {
+    margin-top: 15px;
+  }
+  
+  .linkdin, .github, .mail, .resume {
+    font-size: 1.8rem;
+  }
+  
+  .tabsContainer {
+    margin-top: 10px;
+  }
+  
+  .tabsContainer h1 {
+    font-size: 1rem;
+    margin: 0 10px;
+    padding: 5px;
+  }
+  
+  .underline {
+    height: 1px;
+    margin-top: 3%;
+  }
+  
+  .aboutMeText {
+    width: 95%;
+    font-size: medium;
+    padding: 10px;
+  }
+  
+  .footerContainer {
+    padding: 15px 0;
+  }
+  
+  .footerContainer h1 {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .pfp {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .linkdin, .github, .mail, .resume {
+    font-size: 1.5rem;
+  }
+  
+  .iconContainer {
+    justify-content: space-around;
+    width: 100%;
+  }
+  
+  .linkedinContainer,
+  .githubContainer,
+  .mailContainer,
+  .resumeContainer {
+    margin: 0 5px;
+  }
+  
+  .tabsContainer h1 {
+    font-size: 0.8rem;
+    margin: 0 5px;
+    padding: 5px;
+  }
+  
+  .aboutMeText {
+    font-size: small;
+  }
+  
+  .footerContainer h1 {
+    font-size: 0.8rem;
+  }
 }

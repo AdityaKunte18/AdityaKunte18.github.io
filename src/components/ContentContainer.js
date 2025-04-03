@@ -4,23 +4,32 @@ import AboutMe from './AboutMe';
 import Projects from './Projects';
 import WorkExperience from './WorkExperience';
 
-
 function ContentContainer() {
-  // Adding "Work Experience" to the tabs list
   const tabs = ["About Me", "My Projects", "Work Experience"];
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
   const underlineRef = useRef(null);
   const tabRefs = useRef(tabs.map(() => React.createRef()));
-//   const [renderKey, setRenderKey] = useState(0); // Added for re-triggering animations
+  const tabsContainerRef = useRef(null);
 
   useEffect(() => {
     const currentTab = tabRefs.current[tabs.indexOf(selectedTab)].current;
     const underline = underlineRef.current;
-    underline.style.width = `${currentTab.offsetWidth}px`;
-    underline.style.left = `${currentTab.offsetLeft}px`;
-    // setRenderKey(prevKey => prevKey + 1); // Increment renderKey to re-trigger animation
+    
+    if (currentTab && underline) {
+      underline.style.width = `${currentTab.offsetWidth}px`;
+      underline.style.left = `${currentTab.offsetLeft}px`;
+    }
+    
+    const handleResize = () => {
+      if (currentTab && underline) {
+        underline.style.width = `${currentTab.offsetWidth}px`;
+        underline.style.left = `${currentTab.offsetLeft}px`;
+      }
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, [selectedTab]);
-
 
   const renderComponent = () => {
     switch(selectedTab) {
@@ -35,12 +44,10 @@ function ContentContainer() {
     }
   };
 
-
   return (
     <div className="contentContainer">
       <div className="optionsContainer">
-        <div style={{width:'36%'}}></div>
-        <div className="tabsContainer">
+        <div className="tabsContainer" ref={tabsContainerRef}>
           {tabs.map((tab, index) => (
             <h1 key={tab} ref={tabRefs.current[index]} onClick={() => setSelectedTab(tab)}>
               {tab}
@@ -48,7 +55,6 @@ function ContentContainer() {
           ))}
           <div className="underline" ref={underlineRef}></div>
         </div>
-        <div style={{width:'33%'}}></div>
       </div>
 
       <div className="bodyContainer fadeInUp" key={selectedTab}>

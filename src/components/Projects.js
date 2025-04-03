@@ -1,10 +1,9 @@
-
 import '../styles/projectstyles.css';
 import React from 'react';
 import Project from './Project';
 
 function Projects() {
-  // Example projects data
+  
   const projects = [
     {
       title: 'Healthify',
