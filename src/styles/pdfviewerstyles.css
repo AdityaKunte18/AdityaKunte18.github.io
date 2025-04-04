@@ -1,0 +1,32 @@
+.pdfContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    height: 100%;
+    overflow: auto;
+    max-width: 100%;
+    margin-top: 40px;
+  }
+  
+  .react-pdf__Page {
+    max-width: 90%; 
+    height: auto;
+    overflow: auto;
+  }
+  
+  
+  .pdfLoading, .pdfError {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .pdfError {
+    color: #e53935;
+  }
+  

@@ -8,17 +8,20 @@ import Image from 'next/image';
 import { IoDocumentAttachOutline } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
 import ContentContainer from '@/components/ContentContainer';
+import dynamic from 'next/dynamic';
+
+const PDFViewer = dynamic(() => import('@/components/PDFViewer'), {
+  ssr: false,
+  loading: () => <div className="pdfLoading">Loading PDF viewer...</div>
+});
 
 export default function Home() {
   const [showResumeModal, setShowResumeModal] = useState(false);
-  
-  
+
   useEffect(() => {
     if (showResumeModal) {
-  
       document.body.style.overflow = 'hidden';
     } else {
-  
       document.body.style.overflow = 'auto';
     }
     
@@ -54,19 +57,16 @@ export default function Home() {
                 <a href="https://www.linkedin.com/in/aditya-kunte/" target="_blank" rel="noopener noreferrer">
                   <CiLinkedin className="linkdin"/>
                 </a>
-                {/* <span className="tooltipText">LinkedIn</span> */}
               </div>
               <div className="githubContainer">
                 <a href="https://github.com/AdityaKunte18" target="_blank" rel="noopener noreferrer">
                   <FaSquareGithub className='github'/>
                 </a>
-                {/* <span className="tooltipText">Github</span> */}
               </div>
               <div className="mailContainer">
                 <a href="mailto:akunte2@illinois.edu">
                   <CiMail className='mail'/>
                 </a>
-                {/* <span className="tooltipText">Email</span> */}
               </div>
               <div className="resumeContainer">
                 <a 
@@ -78,26 +78,26 @@ export default function Home() {
                 >
                   <IoDocumentAttachOutline className='resume'/>
                 </a>
-                {/* <span className="tooltipText">Resume</span> */}
               </div>
             </div>
           </div>
         </div>
         <div className="headerRight">
-          {/* <!-- Empty space for future content --> */}
+          {/* Empty space for future content */}
         </div>
       </div>
 
       <ContentContainer/>
       
-      {/* Resume Modal */}
       {showResumeModal && (
-        <div className="resumeModalOverlay" onClick={(e) => {
-          // Close modal when clicking outside of content
-          if (e.target.className === 'resumeModalOverlay') {
-            setShowResumeModal(false);
-          }
-        }}>
+        <div 
+          className="resumeModalOverlay" 
+          onClick={(e) => {
+            if (e.target.className === 'resumeModalOverlay') {
+              setShowResumeModal(false);
+            }
+          }}
+        >
           <div className="resumeModalContent">
             <button 
               className="resumeModalCloseButton"
@@ -105,10 +105,9 @@ export default function Home() {
             >
               <IoClose />
             </button>
-            <iframe 
-              src="/Aditya_Kunte_current.pdf" 
-              className="resumeFrame"
-            />
+            
+        
+            {showResumeModal && <PDFViewer/>}
           </div>
         </div>
       )}

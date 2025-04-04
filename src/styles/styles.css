@@ -1,3 +1,4 @@
+/* styles.css */
 .mainContainer {
   display: flex;
   flex-direction: column;
@@ -487,3 +488,7 @@ body {
     right: 10px;
   }
 }
+
+
+
+
