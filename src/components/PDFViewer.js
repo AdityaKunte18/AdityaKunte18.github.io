@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/Page/TextLayer.css';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
-import '../styles/pdfviewerstyles.css'
-
+import '../styles/pdfviewerstyles.css';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `/pdf.worker.mjs`;
 
@@ -21,17 +20,19 @@ export default function PDFViewer() {
 
   useEffect(() => {
     const handleResize = () => {
-      const modalWidth = document.querySelector('.resumeModalContent')?.clientWidth || window.innerWidth * 0.8;
-      setPdfWidth(Math.min(modalWidth, 800));  
+      const modalWidth = document.querySelector('.resumeModalContent')?.clientWidth || window.innerWidth * 0.6;
+      setPdfWidth(Math.min(modalWidth, 700));  
     };
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   
-
   return (
     <div className="pdfContainer">
+      <a className="downloadButton" href={pdfPath} download>
+        Download PDF
+      </a>
       <Document
         file={pdfPath}
         onLoadSuccess={onDocumentLoadSuccess}
@@ -47,4 +48,3 @@ export default function PDFViewer() {
     </div>
   );
 }
-
