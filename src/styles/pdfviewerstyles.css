@@ -1,4 +1,9 @@
-.pdfContainer {
+.no-scroll {
+    overflow: hidden;
+    height: 100%;
+  }
+  
+  .pdfContainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,6 +19,8 @@
     height: auto;
     overflow: auto;
   }
+  
+
   
   
   .pdfLoading, .pdfError {
