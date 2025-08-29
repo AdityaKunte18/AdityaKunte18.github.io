@@ -29,22 +29,17 @@ export default function PDFViewer() {
   }, []);
   
   return (
-    <div className="pdfContainer">
-      <a className="downloadButton" href={pdfPath} download>
-        Download PDF
-      </a>
-      <Document
-        file={pdfPath}
-        onLoadSuccess={onDocumentLoadSuccess}
-        onLoadError={(error) => console.error("PDF load error:", error)}
-        loading={<div className="pdfLoading">Loading PDF...</div>}
-        error={<div className="pdfError">Error loading PDF. Check the console for details.</div>}
-      >
-        <Page
-          pageNumber={pageNumber}
-          width={pdfWidth}
-        />
-      </Document>
-    </div>
-  );
+  <div className="pdfContainer">
+    <Document
+      file={pdfPath}
+      onLoadSuccess={onDocumentLoadSuccess}
+      onLoadError={(error) => console.error("PDF load error:", error)}
+      loading={<div className="pdfLoading">Loading PDF...</div>}
+      error={<div className="pdfError">Error loading PDF. Check the console for details.</div>}
+    >
+      <Page pageNumber={pageNumber} width={pdfWidth} />
+    </Document>
+  </div>
+);
+
 }

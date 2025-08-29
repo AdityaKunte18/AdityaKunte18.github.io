@@ -90,27 +90,34 @@ export default function Home() {
       <ContentContainer/>
       
       {showResumeModal && (
-        <div 
-          className="resumeModalOverlay" 
-          onClick={(e) => {
-            if (e.target.className === 'resumeModalOverlay') {
-              setShowResumeModal(false);
-            }
-          }}
+  <div
+    className="resumeModalOverlay"
+    onClick={(e) => {
+      if (e.target === e.currentTarget) setShowResumeModal(false);
+    }}
+  >
+    <div className="resumeModalContent">
+      <div className="resumeModalHeader">
+        <a className="downloadLink" href="/Aditya_Kunte_current.pdf" download>
+          Download PDF
+        </a>
+        <button
+          className="resumeModalCloseButton"
+          onClick={() => setShowResumeModal(false)}
+          aria-label="Close"
+          title="Close"
         >
-          <div className="resumeModalContent">
-            <button 
-              className="resumeModalCloseButton"
-              onClick={() => setShowResumeModal(false)}
-            >
-              <IoClose />
-            </button>
-            
-        
-            {showResumeModal && <PDFViewer/>}
-          </div>
-        </div>
-      )}
+          <IoClose />
+        </button>
+      </div>
+
+      <div className="resumeModalBody">
+        <PDFViewer />
+      </div>
+    </div>
+  </div>
+)}
+
     </div>
   );
 }
