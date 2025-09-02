@@ -1,17 +1,42 @@
 .pdfContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  overflow: auto;
+  width: 100%;
+  max-width: 950px;              /* match your JS cap */
+  max-height: 950px;              /* match your JS cap */
+  margin: 0 auto;                /* center fallback */
+  display: flex;                 /* NEW */
+  justify-content: center;       /* NEW */
+}
+
+/* Target react-pdf internals for bulletproof centering */
+.react-pdf__Document {
+  width: 100%;
+}
+
+.react-pdf__Page {
+  display: flex;                 /* NEW */
+  justify-content: center;       /* NEW */
+}
+
+.react-pdf__Page canvas {
+  margin: 0 auto;                /* NEW: final centering guarantee */
+  height: auto !important;       /* keep aspect ratio on resize */
   max-width: 100%;
-  margin: 0 auto;
-  padding-top: 20px;
+}
+
+
+
+.react-pdf__Document, .react-pdf__Page {
+  display: flex;
+  justify-content: center;
+}
+
+.react-pdf__Page__canvas,
+.react-pdf__Page__svg {
+  width: 100% !important;  /* match the width prop exactly */
+  height: auto !important;
 }
 
 .downloadButton {
-  position: sticky;
   top: 0;
   margin-bottom: 20px;
   padding: 8px 16px;
@@ -35,14 +60,15 @@
 }
 
 .resumeModalContent {
-  display: flex;
-  flex-direction: column;
-  width: 90vw;
-  max-width: 820px;
-  height: 80vh;         /* was only max-height; set a fixed height */
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
+  display: flex;          /* NEW */
+  flex-direction: column; /* NEW */
+  width: 50%;
+  height: 90%;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;       /* keep rounded corners; body will scroll inside */
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
 .resumeModalOverlay {
@@ -56,23 +82,23 @@
 }
 
 .resumeModalHeader {
-  position: sticky;
+  position: sticky; /* stays visible while the body scrolls */
   top: 0;
   z-index: 2;
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* was space-between */
-  gap: 12px;                   /* keeps the two buttons next to each other */
+  justify-content: flex-start; /* buttons grouped on the left */
+  gap: 12px;
   padding: 10px 14px;
   border-bottom: 1px solid #eee;
   background: #fafafa;
 }
 
-
 .resumeModalBody {
-  flex:1;
+  flex: 1;
   overflow: auto;
-  padding: 5px;
+  display: flex;                 /* NEW */
+  justify-content: center;       /* NEW: centers children horizontally */
 }
 
 
@@ -96,7 +122,7 @@
 
 /* Optional: style the close button so it layers correctly */
 .resumeModalCloseButton {
-  margin-left: auto;           /* NEW: pushes it to the end */
+  margin-left: auto;
   border: 0;
   background: transparent;
   font-size: 22px;
@@ -119,6 +145,17 @@
   transition: filter 0.2s ease-in-out;
 }
 
+.downloadButton,
+.openNewTabLink {
+  position: static;    /* was sticky */
+  top: auto;           /* reset any top */
+  margin-bottom: 0;    /* header handles its own spacing */
+}
+
 .openNewTabLink:hover {
   filter: brightness(0.92);
 }
+
+.resumeModalBody { transform: none !important; }
+
+.pdfContainer { overflow: auto; }

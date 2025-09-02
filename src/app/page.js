@@ -70,15 +70,14 @@ export default function Home() {
               </div>
               <div className="resumeContainer">
                 <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setShowResumeModal(true);
-                  }}
+                  href="/Aditya_Kunte_current.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <IoDocumentAttachOutline className='resume' />
+                  <IoDocumentAttachOutline className="resume" />
                 </a>
               </div>
+
             </div>
           </div>
         </div>

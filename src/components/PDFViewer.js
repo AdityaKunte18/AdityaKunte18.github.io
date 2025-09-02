@@ -1,9 +1,12 @@
+'use client';
+
 import { useState, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/Page/TextLayer.css';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import '../styles/pdfviewerstyles.css';
 
+// worker path (good for Vercel)
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   'pdfjs-dist/build/pdf.worker.min.mjs',
   import.meta.url
@@ -11,20 +14,20 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 
 export default function PDFViewer() {
   const [numPages, setNumPages] = useState(null);
-  const [pageNumber, setPageNumber] = useState(1);
-  const [pdfWidth, setPdfWidth] = useState(null);
+  const [pdfWidth, setPdfWidth] = useState(820);
 
-  const pdfPath = `${window.location.origin}/Aditya_Kunte_current.pdf`;
+  // If the file is in /public, use a relative path — avoids SSR/window issues
+  const pdfPath = '/Aditya_Kunte_current.pdf';
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
-    setPageNumber(1);
   }
 
   useEffect(() => {
     const handleResize = () => {
-      const modalWidth = document.querySelector('.resumeModalContent')?.clientWidth || window.innerWidth * 0.6;
-      setPdfWidth(Math.min(modalWidth, 700));
+      const body = document.querySelector('.resumeModalBody');
+      const bodyWidth = body?.clientWidth || Math.min(window.innerWidth, 820);
+      setPdfWidth(Math.min(bodyWidth, 950));
     };
     handleResize();
     window.addEventListener('resize', handleResize);
@@ -36,18 +39,26 @@ export default function PDFViewer() {
       <Document
         file={pdfPath}
         onLoadSuccess={onDocumentLoadSuccess}
-        onLoadError={(error) => console.error("PDF load error:", error)}
+        onLoadError={(e) => console.error('PDF load error:', e)}
         loading={<div className="pdfLoading">Loading PDF...</div>}
-        error={<div className="pdfError">Error loading PDF. Check the console for details.</div>}
+        error={<div className="pdfError">Error loading PDF.</div>}
+        options={{
+          cMapUrl: '/cmaps/',
+          cMapPacked: true,
+          standardFontDataUrl: '/standard_fonts/',
+        }}
       >
-        {numPages &&
-          Array.from({ length: numPages }, (_, i) => (
-            <Page key={i + 1} pageNumber={i + 1} width={pdfWidth} />
-          ))
-        }
+        {Array.from({ length: numPages || 0 }, (_, i) => (
+          <Page
+            key={i + 1}
+            pageNumber={i + 1}
+            width={pdfWidth}
+            renderMode="svg"           // <-- vector text = crisp
+            renderAnnotationLayer={false}
+            renderTextLayer={true}
+          />
+        ))}
       </Document>
-
     </div>
   );
-
 }
