@@ -24,7 +24,7 @@ export default function Home() {
     } else {
       document.body.style.overflow = 'auto';
     }
-    
+
     return () => {
       document.body.style.overflow = 'auto';
     };
@@ -36,12 +36,12 @@ export default function Home() {
         <div className="headerLeft">
           <div className="imageContainer">
             <div className="pfpContainer">
-              <Image 
-                src='/pfp_updated.jpg' 
-                alt='my profile picture' 
-                width={150} 
-                height={150} 
-                className="pfp" 
+              <Image
+                src='/pfp_updated.jpg'
+                alt='my profile picture'
+                width={150}
+                height={150}
+                className="pfp"
                 priority
               />
             </div>
@@ -55,28 +55,28 @@ export default function Home() {
             <div className="iconContainer">
               <div className="linkedinContainer">
                 <a href="https://www.linkedin.com/in/aditya-kunte/" target="_blank" rel="noopener noreferrer">
-                  <CiLinkedin className="linkdin"/>
+                  <CiLinkedin className="linkdin" />
                 </a>
               </div>
               <div className="githubContainer">
                 <a href="https://github.com/AdityaKunte18" target="_blank" rel="noopener noreferrer">
-                  <FaSquareGithub className='github'/>
+                  <FaSquareGithub className='github' />
                 </a>
               </div>
               <div className="mailContainer">
                 <a href="mailto:akunte2@illinois.edu">
-                  <CiMail className='mail'/>
+                  <CiMail className='mail' />
                 </a>
               </div>
               <div className="resumeContainer">
-                <a 
-                  href="#" 
+                <a
+                  href="#"
                   onClick={(e) => {
                     e.preventDefault();
                     setShowResumeModal(true);
                   }}
                 >
-                  <IoDocumentAttachOutline className='resume'/>
+                  <IoDocumentAttachOutline className='resume' />
                 </a>
               </div>
             </div>
@@ -87,36 +87,47 @@ export default function Home() {
         </div>
       </div>
 
-      <ContentContainer/>
-      
-      {showResumeModal && (
-  <div
-    className="resumeModalOverlay"
-    onClick={(e) => {
-      if (e.target === e.currentTarget) setShowResumeModal(false);
-    }}
-  >
-    <div className="resumeModalContent">
-      <div className="resumeModalHeader">
-        <a className="downloadLink" href="/Aditya_Kunte_current.pdf" download>
-          Download PDF
-        </a>
-        <button
-          className="resumeModalCloseButton"
-          onClick={() => setShowResumeModal(false)}
-          aria-label="Close"
-          title="Close"
-        >
-          <IoClose />
-        </button>
-      </div>
+      <ContentContainer />
 
-      <div className="resumeModalBody">
-        <PDFViewer />
-      </div>
-    </div>
-  </div>
-)}
+      {showResumeModal && (
+        <div
+          className="resumeModalOverlay"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setShowResumeModal(false);
+          }}
+        >
+          <div className="resumeModalContent">
+            <div className="resumeModalHeader">
+              <a className="downloadLink" href="/Aditya_Kunte_current.pdf" download>
+                Download PDF
+              </a>
+
+              <a
+                className="openNewTabLink"
+                href="/Aditya_Kunte_current.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open in New Tab
+              </a>
+
+              <button
+                className="resumeModalCloseButton"
+                onClick={() => setShowResumeModal(false)}
+                aria-label="Close"
+                title="Close"
+              >
+                <IoClose />
+              </button>
+            </div>
+
+
+            <div className="resumeModalBody">
+              <PDFViewer />
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   );
