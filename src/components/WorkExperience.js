@@ -9,7 +9,7 @@ function WorkExperience() {
       duration: 'May - Present',
       location: 'Champaign, Illinois',
       year: '2024',
-      description: "Working with Professor Yongjoo Park to look for improvements in causal models by improving its parallelism. Also working on optimizing random forest models by improving their parallelism"
+      description: "Working with Professor Yongjoo Park to look for improvements in causal models by improving its parallelism. Also working on optimizing random forest models by improving their parallelism. \n I also worked on Python's pickle module, where I designed a custom threadpool which I used to 'parallely serialize' Python objects. \n Currently working on 'Horizann', a distributed system which runs ANNS (approximate nearest neighbor search) using HNSWs (hierarchical navigable small-world graphs)."
     },
     {
       title: 'Software Engineer',
