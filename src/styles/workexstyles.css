@@ -1,111 +1,85 @@
-/* workexstyles.css */
+/* Container for the list */
 .WorkExperiencesContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px 10px;
+  padding: 30px 12px;
   width: 100%;
+  gap: 16px;
 }
 
+/* Card */
 .workexContainer {
-  display: flex;
-  flex-direction: column;
-  border: 2px solid #4b5563;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 800px;
-  margin-bottom: 20px;
-  background-color: #23303f;
+  position: relative;
+  width: min(800px, 92%);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border: 1px solid var(--border);
   overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
 
-.workextitlecomp {
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 20px;
-  background-color: #1e2734;
-  width: 100%;
+/* Accent stripe */
+.workexContainer::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--accent), transparent);
 }
 
-.workextitlecomp h2 {
-  font-size: 1.3rem;
-  margin: 0 0 5px 0;
+/* Hover/focus polish */
+.workexContainer:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(0,0,0,.35);
+  border-color: #3b4a5b;
 }
 
-.workextitlecomp h3 {
-  font-size: 1rem;
+/* Header layout */
+.workexHeader {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px 20px;
+  background: var(--surface);
+  padding: calc(var(--card-pad) + 2px) var(--card-pad);
+}
+
+/* Left side */
+.workexCompanyTitle { display: flex; flex-direction: column; gap: 4px; }
+.workexCompany { margin: 0; font-size: 1.2rem; color: #fff; letter-spacing: .3px; }
+.workexRole { margin: 0; font-size: .95rem; color: var(--muted); font-weight: 500; }
+
+/* Right side meta */
+.workexMeta { text-align: right; display: flex; flex-direction: column; gap: 6px; }
+.metaRow { display: inline-flex; gap: 8px; align-items: center; justify-content: flex-end; }
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background: rgba(249,156,56,.12);
+  color: var(--accent);
+  border: 1px solid rgba(249,156,56,.35);
+  font-size: .8rem;
+  line-height: 1;
+}
+.muted { color: var(--muted); font-size: .9rem; }
+
+/* Body */
+.workexBody {
+  padding: var(--card-pad);
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+
+.workexBody p {
   margin: 0;
-}
-
-.workextitlecomp div:first-child {
-  flex: 1;
-}
-
-.workextitlecomp div:last-child {
-  text-align: right;
-  color: #e4e4e7;
-}
-
-.workexfooter {
-  padding: 15px 20px;
-  background-color: #23303f;
-}
-
-.workexfooter p {
-  color: #e4e4e7;
+  color: var(--text);
   line-height: 1.6;
-  margin: 0;
 }
 
-
-@media screen and (max-width: 900px) {
-  .workexContainer {
-    width: 95%;
-  }
-}
-
-@media screen and (max-width: 789px) {
-  .workextitlecomp {
-    flex-direction: column;
-    padding: 12px 15px;
-  }
-  
-  .workextitlecomp div:last-child {
-    text-align: left;
-    margin-top: 10px;
-  }
-  
-  .workextitlecomp h2 {
-    font-size: 1.1rem;
-  }
-  
-  .workextitlecomp h3 {
-    font-size: 0.9rem;
-  }
-  
-  .workexfooter {
-    padding: 12px 15px;
-  }
-  
-  .workexfooter p {
-    font-size: 0.9rem;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .workexContainer {
-    width: 98%;
-  }
-  
-  .workextitlecomp h2 {
-    font-size: 1rem;
-  }
-  
-  .workextitlecomp h3 {
-    font-size: 0.8rem;
-  }
-  
-  .workexfooter p {
-    font-size: 0.85rem;
-  }
+/* Responsive tweaks */
+@media (max-width: 820px) {
+  .workexHeader { grid-template-columns: 1fr; }
+  .workexMeta { text-align: left; }
 }

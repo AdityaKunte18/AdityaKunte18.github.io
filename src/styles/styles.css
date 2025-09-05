@@ -490,5 +490,33 @@ body {
 }
 
 
+:root {
+  --bg: #23303f;           /* page background */
+  --surface: #1e2734;      /* card base */
+  --surface-2: #0f172a;    /* deeper surface for hovers */
+  --text: #e5e7eb;         /* primary text */
+  --muted: #a3b3c2;        /* secondary text */
+  --border: #334155;       /* subtle borders */
+  --accent: #f99c38;       /* your highlight color */
+  --ring: #93c5fd;         /* focus ring */
+  --radius: 16px;
+  --card-pad: 18px;
+}
+
+/* keep your existing background */
+body { background-color: var(--bg); color: var(--text); }
+
+/* accessible focus for keyboard users */
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* prefer-reduced-motion support */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
 
 
+.contentContainer,
+.bodyContainer { min-height: 0; }

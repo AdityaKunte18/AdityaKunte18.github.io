@@ -3,22 +3,26 @@ import '../styles/workexstyles.css';
 
 function Workex({ title, company, duration, location, year, description }) {
   return (
-    <div className="workexContainer">
-      <div className="workextitlecomp">
-        <div>
-          <h2 style={{color:'white'}}>{company}</h2>
-          <h3 style={{color:'slategrey'}}>{title}</h3>
+    <article className="workexContainer" role="listitem">
+      <header className="workexHeader">
+        <div className="workexCompanyTitle">
+          <h2 className="workexCompany">{company}</h2>
+          <h3 className="workexRole">{title}</h3>
         </div>
-        <div>
-          <h2>{year}</h2>
-          <h3>{duration}</h3>
-          <h2>{location}</h2>
+        <div className="workexMeta" aria-label="Position details">
+          <div className="metaRow">
+            <span className="badge">{year}</span>
+            <span className="muted">•</span>
+            <span className="muted">{duration}</span>
+          </div>
+          <div className="muted">{location}</div>
         </div>
-      </div>
-      <div className='workexfooter'>
+      </header>
+
+      <div className="workexBody">
         <p>{description}</p>
       </div>
-    </div>
+    </article>
   );
 }
 

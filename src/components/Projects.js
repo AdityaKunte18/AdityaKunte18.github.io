@@ -5,9 +5,20 @@ import Project from './Project';
 function Projects() {
   
   const projects = [
+    {title: 'FundHub',
+       skills: ['web-scraping', 'LangGraph-RAG' , 'Diarization'],
+      description: "I wanted to learn more about LangGraph-based RAG. First, I scraped information about fund managers by pulling newspaper articles and diarizing youtube videos and matching with transcription to figure out what they've said. Then, I designed verifier and answerer nodes in LangGraph to give citation-backed results on fund managers' perspectives.",
+      githubLink: 'https://github.com/shiv213/board2ticket',
+    },
+    {title: 'Board2Ticket (Winners!)',
+       skills: ['Computer Vision', 'LLMs' ,'Github API'],
+      description: "Literally pulled 2 all nighters for this hackathon. We used a CV and audio processing pipeline to automatically identify different sections of text/diagrams on a whiteboard, preserving temporal relationship. Then, we prompted GPT's vision model to run inference on targeted points in the picture, and passed those into actionable tasks on Github issues, along with a picture of what was discussed. ",
+      githubLink: 'https://github.com/shiv213/board2ticket',
+    },
+
     {
       title: 'Healthify',
-      skills: ['React.JS', 'SQL'],
+      skills: ['React Native', 'SQL', 'Android App Dev'],
       description: "A straightforward workflow productivity app for medical residents in India. Residents are usually overworked daily, and have no electronic health record system (at least for those in public hospitals). This app makes their work easier.",
       githubLink: 'https://github.com/AdityaKunte18/Healthify',
     },
@@ -19,7 +30,7 @@ function Projects() {
     },
     {
       title: 'CricLookup',
-      skills: ['Python', "web-scraping", "data-manipulation"],
+      skills: ['Python', "web-scraping"],
       description: "For the 2024 Cricket IPL, I fetched player data (runs and wickets) from cricinfo. This involved a lot of string parsing to determine the type of wicket (caught-out, LBW) and the number of runs. I used fuzzy matching to match player scores to player names in a dictionary.",
       githubLink: 'https://github.com/AdityaKunte18/cricLookup'
     },
