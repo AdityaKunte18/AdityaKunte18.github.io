@@ -8,7 +8,7 @@ function Projects() {
     {title: 'FundHub',
        skills: ['web-scraping', 'LangGraph-RAG' , 'Diarization'],
       description: "I wanted to learn more about LangGraph-based RAG. First, I scraped information about fund managers by pulling newspaper articles and diarizing youtube videos and matching with transcription to figure out what they've said. Then, I designed verifier and answerer nodes in LangGraph to give citation-backed results on fund managers' perspectives.",
-      githubLink: 'https://github.com/shiv213/board2ticket',
+      githubLink: 'https://github.com/AdityaKunte18/FundHub',
     },
     {title: 'Board2Ticket (Winners!)',
        skills: ['Computer Vision', 'LLMs' ,'Github API'],
