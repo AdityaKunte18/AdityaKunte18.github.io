@@ -3,6 +3,7 @@ import '../styles/styles.css';
 import AboutMe from './AboutMe';
 import Projects from './Projects';
 import WorkExperience from './WorkExperience';
+import { FaCoffee, FaHeart } from "react-icons/fa";
 
 function ContentContainer() {
   const tabs = ["About Me", "My Projects", "Work Experience"];
@@ -14,25 +15,25 @@ function ContentContainer() {
   useEffect(() => {
     const currentTab = tabRefs.current[tabs.indexOf(selectedTab)].current;
     const underline = underlineRef.current;
-    
+
     if (currentTab && underline) {
       underline.style.width = `${currentTab.offsetWidth}px`;
       underline.style.left = `${currentTab.offsetLeft}px`;
     }
-    
+
     const handleResize = () => {
       if (currentTab && underline) {
         underline.style.width = `${currentTab.offsetWidth}px`;
         underline.style.left = `${currentTab.offsetLeft}px`;
       }
     };
-    
+
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, [selectedTab]);
 
   const renderComponent = () => {
-    switch(selectedTab) {
+    switch (selectedTab) {
       case 'About Me':
         return <AboutMe />;
       case 'My Projects':
@@ -62,8 +63,15 @@ function ContentContainer() {
       </div>
 
       <div className="footerContainer">
-        <h1 style={{fontFamily:'monospace'}}>Made with <span style={{fontSize:'18pt'}}>☕️</span> and <span style={{fontSize:'18pt'}}>❤️</span> By Aditya </h1>
+        <div className="footerText">
+          <span>Made with</span>
+          <FaCoffee className="footerIcon" aria-label="coffee" />
+          <span>and</span>
+          <FaHeart className="footerIcon" aria-label="love" />
+          <span>by Aditya</span>
+        </div>
       </div>
+
     </div>
   );
 }

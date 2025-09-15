@@ -522,3 +522,39 @@ body { background-color: var(--bg); color: var(--text); }
 .bodyContainer { min-height: 0; }
 
 
+.footerText {
+  font-family: monospace;
+  display: inline-flex;
+  align-items: baseline;   /* keeps icons aligned with text baseline */
+  gap: 0.5rem;             /* uniform spacing between every item */
+  white-space: nowrap;     /* stay on one line */
+}
+
+.footerIcon {
+  transform: translateY(2px); /* moves icon down by 2px */
+  width: 1.1em;
+  height: 1.1em;
+}
+
+@media screen and (max-width: 1024px) {
+  .footerText {
+    font-size: 0.9rem;  /* slightly smaller */
+  }
+  .footerIcon {
+    width: 1em;
+    height: 1em;
+    transform: translateY(1px);
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+  .footerText {
+    font-size: 0.8rem;  /* smaller for mobile */
+  }
+  .footerIcon {
+    width: 0.9em;
+    height: 0.9em;
+    transform: translateY(1px);
+  }
+}
