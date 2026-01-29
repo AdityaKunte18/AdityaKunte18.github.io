@@ -3,6 +3,15 @@ import Workex from './Workex';
 
 function WorkExperience() {
   const experiences = [
+      {
+    title: 'AI Intern',
+    company: 'DSP Mutual Funds',
+    duration: 'May - Aug',
+    location: 'Mumbai, India',
+    year: '2025',
+    description: "Developed a full-stack AI-powered compliance platform ('Hawkeye') using React.js, Node.js, and PostgreSQL to help analysts query and review large-scale audio transcription data. \n Implemented JWT-based authentication and role-based access control, improving secure access to internal tools and increasing review efficiency by over 50%. \n Designed and deployed a FastAPI-based speaker diarization microservice to identify known speakers in conversations and improve metadata accuracy. \n Built speech data pipelines using OpenSLR and fine-tuned OpenAI Whisper with LoRA adapters to improve multilingual transcription quality and robustness."
+   },
+
     {
       title: 'Research',
       company: 'CreateLab',
@@ -14,9 +23,9 @@ function WorkExperience() {
     {
       title: 'Software Engineer',
       company: 'Applied Research Institute',
-      duration: 'May - Present',
+      duration: '1 Year',
       location: 'Champaign, Illinois',
-      year: '2024',
+      year: '2024-2025',
       description: "Implemented mealplot.com, a website used by researchers, using React.js. Also implemented Flask API-endpoints that served data to the React website.",
     },
     {
