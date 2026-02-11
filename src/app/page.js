@@ -21,6 +21,7 @@ const PDFViewer = dynamic(() => import("@/components/PDFViewer"), {
 const TABS = ["About", "Projects", "Experience"];
 
 const PROJECTS = [
+  { title: "Agent Browser", category: "Agent", skills: ["Next.js", "LLM APIs", "Browser Automation", "Full-Stack"], desc: "Open-source agent browser: pick a model, plug in your API key, and let AI browse the web for you.", link: "https://github.com/AdityaKunte18/agent-browser", featured: true },
   { title: "FundHub", category: "AI", skills: ["LangGraph-RAG", "Web Scraping", "Diarization"], desc: "Scraped fund manager info from articles and diarized YouTube videos, then built LangGraph verifier + answerer nodes for citation-backed RAG results.", link: "https://github.com/AdityaKunte18/FundHub" },
   { title: "Board2Ticket", category: "AI", skills: ["Computer Vision", "LLMs", "Github API"], desc: "Hackathon winner. CV + audio pipeline identifies whiteboard sections, GPT vision runs inference, outputs actionable GitHub issues.", link: "https://github.com/shiv213/board2ticket" },
   { title: "Healthify", category: "App", skills: ["React Native", "SQL", "Android"], desc: "Workflow productivity app for medical residents in Indian public hospitals with no EHR system.", link: "https://github.com/AdityaKunte18/Healthify" },
@@ -340,44 +341,54 @@ function AboutTab() {
 /* ─── PROJECTS ─── */
 function ProjectsTab() {
   const [expanded, setExpanded] = useState(null);
+  const featured = PROJECTS.filter((p) => p.featured);
+  const regular = PROJECTS.filter((p) => !p.featured);
+
+  const renderCard = (p, i, isFeatured) => {
+    const isOpen = expanded === p.title;
+    return (
+      <div
+        key={p.title}
+        className={`proj-card ${isFeatured ? "proj-card--featured" : ""} ${isOpen ? "proj-card--open" : ""}`}
+        style={{ animationDelay: `${i * 0.05}s` }}
+        onClick={() => setExpanded(isOpen ? null : p.title)}
+      >
+        <div className="proj-card-top">
+          <div className="proj-card-badges">
+            <span className={`proj-cat proj-cat--${p.category.toLowerCase().replace("-", "")}`}>{p.category}</span>
+            {isFeatured && <span className="proj-badge-current">Currently Working On</span>}
+          </div>
+          <a
+            href={p.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="proj-gh"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <FaGithub />
+          </a>
+        </div>
+        <h3 className="proj-name">{p.title}</h3>
+        <p className="proj-summary">{p.desc}</p>
+        {isOpen && (
+          <div className="proj-detail">
+            <div className="proj-tags">
+              {p.skills.map((s) => (
+                <span key={s} className="tag">{s}</span>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  };
 
   return (
-    <div className="proj-grid">
-      {PROJECTS.map((p, i) => {
-        const isOpen = expanded === i;
-        return (
-          <div
-            key={p.title}
-            className={`proj-card ${isOpen ? "proj-card--open" : ""}`}
-            style={{ animationDelay: `${i * 0.05}s` }}
-            onClick={() => setExpanded(isOpen ? null : i)}
-          >
-            <div className="proj-card-top">
-              <span className={`proj-cat proj-cat--${p.category.toLowerCase().replace("-", "")}`}>{p.category}</span>
-              <a
-                href={p.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="proj-gh"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <FaGithub />
-              </a>
-            </div>
-            <h3 className="proj-name">{p.title}</h3>
-            <p className="proj-summary">{p.desc}</p>
-            {isOpen && (
-              <div className="proj-detail">
-                <div className="proj-tags">
-                  {p.skills.map((s) => (
-                    <span key={s} className="tag">{s}</span>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        );
-      })}
+    <div className="proj-section">
+      {featured.map((p, i) => renderCard(p, i, true))}
+      <div className="proj-grid">
+        {regular.map((p, i) => renderCard(p, featured.length + i, false))}
+      </div>
     </div>
   );
 }
