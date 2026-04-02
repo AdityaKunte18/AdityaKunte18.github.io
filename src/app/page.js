@@ -21,7 +21,9 @@ const PDFViewer = dynamic(() => import("@/components/PDFViewer"), {
 const TABS = ["About", "Projects", "Experience"];
 
 const PROJECTS = [
-  { title: "Fetch", category: "Agent", skills: ["Next.js", "LLM APIs", "Browser Automation", "Full-Stack"], desc: "Open-source agent browser: pick a model, plug in your API key, and let AI browse the web for you.", link: "https://github.com/AdityaKunte18/Fetch", featured: true },
+  { title: "Tangent", category: "Agent", skills: ["Google ADK", "Testing", "SWE"], desc: "We built an LLM agent with Google ADK that can ingest code files (language agnostic), generate a control flow graph based on a defined schema, and then generate tests based on the CFG to ensure maximum test coverage", link: "https://github.com/AdityaKunte18/Tangent", featured: true },
+  { title: "Triton-Attention", category: "LLM", skills: ["LLM architecture", "Pytorch", "Triton", "GPU Programming"], desc: "Implementing core AI methods like softmax, attention mechanisms in Triton and native torch.", link: "https://github.com/AdityaKunte18/Triton-attention"},
+  { title: "Fetch", category: "Agent", skills: ["Next.js", "Ollama", "Browser Automation", "Full-Stack"], desc: "Open-source agent browser: pick a model, plug in your API key, and let AI browse the web for you.", link: "https://github.com/AdityaKunte18/Fetch"},
   { title: "FundHub", category: "AI", skills: ["LangGraph-RAG", "Web Scraping", "Diarization"], desc: "Scraped fund manager info from articles and diarized YouTube videos, then built LangGraph verifier + answerer nodes for citation-backed RAG results.", link: "https://github.com/AdityaKunte18/FundHub" },
   { title: "Board2Ticket", category: "AI", skills: ["Computer Vision", "LLMs", "Github API"], desc: "Hackathon winner. CV + audio pipeline identifies whiteboard sections, GPT vision runs inference, outputs actionable GitHub issues.", link: "https://github.com/shiv213/board2ticket" },
   { title: "Healthify", category: "App", skills: ["React Native", "SQL", "Android"], desc: "Workflow productivity app for medical residents in Indian public hospitals with no EHR system.", link: "https://github.com/AdityaKunte18/Healthify" },
